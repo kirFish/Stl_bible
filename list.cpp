@@ -50,7 +50,7 @@ int main()
 	cout << "Merge: ";
 	for_each(mylist2.begin(), mylist2.end(), show);cout << endl;
 
-	ls2.unique();												// Remove duplicate items in a group
+	mylist2.unique();												// Remove duplicate items in a group
 	cout << "Unique: ";
 	for_each(mylist2.begin(), mylist2.end(), show);cout << endl;
 }
