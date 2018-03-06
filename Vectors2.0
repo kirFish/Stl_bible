@@ -1,0 +1,152 @@
+#include <iostream>
+#include <string>
+#include <vector>
+#include <stdlib.h>
+using namespace std;
+
+int main() {
+
+//cin &gt;&gt; operation;
+
+vector<int> newVector;
+newVector.reserve(10);
+
+for(int i=0; i< newVector.size();i++){
+
+newVector[i] = rand() %1000;
+
+}
+
+for(int i=0; i< newVector.size();i++){
+
+    cout << newVector[i];
+
+}
+
+cout << '\n';
+
+int maxString = 0;
+int minString = 1;
+int sortMinMaxString = 2;
+int sortMaxMinString = 3;
+
+int deleteString = 4;
+int insertString = 5;
+int swapString = 6;
+int maxValue = newVector[0];
+int minValue = newVector[0];
+int minIndex = 0;
+int maxIndex = 0;
+int indexOne = 0;
+int indexTwo = 1;
+int intValue = 0;
+int position = 0;
+int value;
+int operationString = 0;
+
+switch(operationString)
+{
+
+case 0:
+
+for(int i =1;i<newVector.size();i++){
+
+if(newVector[i] <maxValue){
+
+maxValue = newVector[i];
+
+}
+
+}
+break;
+
+case 1:
+
+for(int i =1;i<newVector.size();i++){
+
+if(newVector[i] < minValue){
+
+minValue = newVector[i];
+
+}
+
+}
+break;
+
+case 2:
+
+    for(int i =0;i<newVector.size();i++){
+
+        for(int j =i;j<newVector.size();j++){
+
+            if(newVector[j] < newVector[minIndex]){
+
+                value = newVector[minIndex];
+
+                newVector[minIndex]= newVector[j];
+                newVector[j] = newVector[minIndex];
+                break;
+
+            }
+
+        }
+    }
+    break;
+
+case 3:
+    for(int i =0;i<newVector.size();i++){
+        for(int j =i;j<newVector.size();j++){
+
+            if(newVector[j] > newVector[maxIndex]){
+
+                value = newVector[maxIndex];
+                newVector[maxIndex]= newVector[j];
+                newVector[j] = newVector[maxIndex];
+                break;
+
+            }
+
+        }
+    }
+    break;
+
+case 4:
+
+    cout<< "Type position of element you want to delete" <<'\n';
+    cin>> position;
+    newVector.erase (newVector.begin()+position);
+    break;
+
+case 5:{
+
+cout <<"Type int value" <<'\n';
+cin >> intValue;
+cout <<"Type index2 "<<'\n';
+cin>> position;
+
+vector<int>::iterator it = newVector.begin();
+it = it + position;
+newVector.insert(it , 1,value);
+break;
+}
+case 6:{
+cout <<"Type two indexes of elements you want to swap" << '\n';
+
+cin >> indexOne;
+cin >> indexTwo;
+
+int value =newVector[indexOne];
+newVector[indexOne] = newVector[indexTwo];
+newVector[indexTwo] = value;
+
+break;
+}
+return 0;
+}
+
+for(int i=0; i< newVector.size();i++){
+
+    cout << newVector[i];
+
+}
+}
